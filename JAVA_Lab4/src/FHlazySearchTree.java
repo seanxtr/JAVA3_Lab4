@@ -5,6 +5,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
    implements Cloneable
 {
    protected int mSize;
+   protected int mSizeHard;
    protected FHlazySTNode<E> mRoot;
    
    public FHlazySearchTree() { clear(); }
@@ -12,6 +13,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
    public int size() { return mSize; }
    public void clear() { mSize = 0; mRoot = null; }
    public int showHeight() { return findHeight(mRoot, -1); }
+   public int sizeHard() { return mSizeHard; }
    
    public E findMin() 
    {
@@ -190,13 +192,15 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
 
 class FHlazySTNode<E extends Comparable< ? super E > >
 {
-   // use public access so the tree or other classes can access members 
+   // use public access so the tree or other classes can access members
+   public boolean deleted;
    public FHlazySTNode<E> lftChild, rtChild;
    public E data;
    public FHlazySTNode<E> myRoot;  // needed to test for certain error
 
    public FHlazySTNode( E d, FHlazySTNode<E> lft, FHlazySTNode<E> rt )
    {
+      deleted = false;
       lftChild = lft; 
       rtChild = rt;
       data = d;
