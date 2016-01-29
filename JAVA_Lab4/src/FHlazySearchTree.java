@@ -89,7 +89,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
     * Method to perform hard delete
     */
    public void collectGarbage(){
-      mRoot = collectGarbage(mRoot);
+      collectGarbage(mRoot);
    }
    
    // private helper methods ----------------------------------------
