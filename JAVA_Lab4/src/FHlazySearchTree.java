@@ -143,7 +143,6 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       return root;
    }
 
-   
    /**
     * helper method to perform a soft delete 
     * @param root   the node to search
@@ -198,8 +197,7 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
       }
       else
       {
-         root =
-            (root.lftChild != null)? root.lftChild : root.rtChild;
+         root = (root.lftChild != null)? root.lftChild : root.rtChild;
          mSize--;
          mSizeHard--;
       }
@@ -270,9 +268,9 @@ public class FHlazySearchTree<E extends Comparable< ? super E > >
 
       // check if the root should be deleted
       if (root.deleted)
-         root = removeHard(root, root.data);
+         mRoot = removeHard(root, root.data);
       
-      collectGarbage(root);
+      collectGarbage(root.rtChild);
       return root;   
    }
 }
