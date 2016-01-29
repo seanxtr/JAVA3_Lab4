@@ -1,5 +1,5 @@
 // CIS 1C Assignment #4
-// Instructor Solution Client
+// Part A - Lazy Deletion
 
 import cs_1c.*;
 
@@ -41,7 +41,7 @@ public class Foothill
       searchTree.collectGarbage();
       System.out.println( "tree 1 size: " + searchTree.size() 
          + "  Hard size: " + searchTree.sizeHard() );
-
+      
       // test assignment operator
       FHlazySearchTree<Integer> searchTree2 
          = (FHlazySearchTree<Integer>)searchTree.clone();
